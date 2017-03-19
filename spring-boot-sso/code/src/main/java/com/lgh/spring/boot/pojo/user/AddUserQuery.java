@@ -5,6 +5,7 @@ package com.lgh.spring.boot.pojo.user;
  */
 public class AddUserQuery {
     private String name;
+    private String password;
     private String email;
 
     public String getName() {
@@ -21,5 +22,13 @@ public class AddUserQuery {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

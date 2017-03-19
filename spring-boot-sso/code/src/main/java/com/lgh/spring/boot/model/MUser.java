@@ -17,8 +17,10 @@ public class MUser implements Serializable{
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "uuid")
     private String id;
+    @Column(unique = true)
     private String name;
     private String email;
+    private String password;
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinTable(name = "auth_user_role",
     joinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "id")},
@@ -55,5 +57,13 @@ public class MUser implements Serializable{
 
     public void setRoles(Set<MRole> roles) {
         this.roles = roles;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

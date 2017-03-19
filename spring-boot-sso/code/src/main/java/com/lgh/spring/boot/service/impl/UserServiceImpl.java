@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService {
         MUser mUser = new MUser();
         mUser.setName(user.getName());
         mUser.setEmail(user.getEmail());
+        mUser.setPassword(user.getPassword());
         return userRepo.save(mUser) != null;
     }
 
