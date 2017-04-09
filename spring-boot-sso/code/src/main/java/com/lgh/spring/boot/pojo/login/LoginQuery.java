@@ -6,7 +6,7 @@ package com.lgh.spring.boot.pojo.login;
 public class LoginQuery {
     private String ticketId;
     private String userName;
-    private String passWord;
+    private String password;
 
     public String getTicketId() {
         return ticketId;
@@ -24,11 +24,11 @@ public class LoginQuery {
         this.userName = userName;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

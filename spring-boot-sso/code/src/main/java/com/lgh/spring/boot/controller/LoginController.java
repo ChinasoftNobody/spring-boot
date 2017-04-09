@@ -33,7 +33,7 @@ public class LoginController {
         if(loginService.validTicketLogin(query.getTicketId())){
             return ResponseUtil.ok(query.getTicketId());
         }
-        String ticketId = loginService.login(query.getUserName(),query.getPassWord());
+        String ticketId = loginService.login(query.getUserName(),query.getPassword());
         if(!StringUtils.isEmpty(ticketId)){
             return ResponseUtil.ok(ticketId);
         }
