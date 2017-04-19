@@ -28,7 +28,7 @@ public class LoginServiceImpl implements LoginService {
             return false;
         }
         MTicket ticket = ticketRepo.findByTicketId(ticketId);
-        if (ticket != null && (ticket.getEffectiveTime() - System.currentTimeMillis() > 7200*1000)) {
+        if (ticket != null && (ticket.getEffectiveTime() - System.currentTimeMillis() <= 7200*1000)) {
             return true;
         }
         return false;
