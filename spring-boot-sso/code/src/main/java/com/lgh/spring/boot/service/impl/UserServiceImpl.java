@@ -19,6 +19,10 @@ public class UserServiceImpl implements UserService {
     private UserRepo userRepo;
     @Override
     public boolean addUser(AddUserQuery user) {
+        MUser user1 = userRepo.findByName(user.getName());
+        if(user1 != null){
+            return false;
+        }
         MUser mUser = new MUser();
         mUser.setName(user.getName());
         mUser.setEmail(user.getEmail());
