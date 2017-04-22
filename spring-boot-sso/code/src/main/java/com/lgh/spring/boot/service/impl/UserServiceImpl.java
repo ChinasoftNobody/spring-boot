@@ -18,16 +18,16 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserRepo userRepo;
     @Override
-    public boolean addUser(AddUserQuery user) {
+    public MUser addUser(AddUserQuery user) {
         MUser user1 = userRepo.findByName(user.getName());
         if(user1 != null){
-            return false;
+            throw new IllegalArgumentException("User is a ready exist.");
         }
         MUser mUser = new MUser();
         mUser.setName(user.getName());
         mUser.setEmail(user.getEmail());
         mUser.setPassword(user.getPassword());
-        return userRepo.save(mUser) != null;
+        return userRepo.save(mUser);
     }
 
     @Override

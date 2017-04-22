@@ -1,6 +1,7 @@
 package com.lgh.spring.boot.controller;
 
 import com.lgh.spring.boot.common.Response;
+import com.lgh.spring.boot.model.MUser;
 import com.lgh.spring.boot.pojo.user.QueryUserQuery;
 import com.lgh.spring.boot.util.ResponseUtil;
 import com.lgh.spring.boot.pojo.user.AddUserQuery;
@@ -24,8 +25,9 @@ public class UserController {
     @ApiOperation(value = "添加用户", notes = "添加用户")
     @ResponseBody
     public Response addUser(@RequestBody AddUserQuery user) {
-        if (userService.addUser(user)) {
-            return ResponseUtil.ok("success");
+        MUser user1 = userService.addUser(user);
+        if (user1 != null) {
+            return ResponseUtil.ok(user1);
         }
         return ResponseUtil.failed("save error");
     }

@@ -9,7 +9,7 @@ import org.springframework.data.domain.Page;
  * Created by Administrator on 2017/3/4.
  */
 public interface UserService {
-    boolean addUser(AddUserQuery user);
+    MUser addUser(AddUserQuery user);
 
     /**
      * 分页查询所有用户
