@@ -1,5 +1,7 @@
 package com.lgh.spring.boot.service;
 
+import com.lgh.spring.boot.common.Response;
+
 /**
  * Created by Administrator on 2017/3/19.
  */
@@ -18,4 +20,11 @@ public interface LoginService {
      * @return 登陆结果
      */
     String login(String userName, String passWord);
+
+    /**
+     * 检验ticket
+     * @param ticket sso_ticket
+     * @return 检验结果
+     */
+    Response loginStatus(String ticket);
 }

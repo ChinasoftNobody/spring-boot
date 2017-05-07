@@ -23,7 +23,6 @@ public class UserController {
 
     @PostMapping(value = "/add", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ApiOperation(value = "添加用户", notes = "添加用户")
-    @ResponseBody
     public Response addUser(@RequestBody AddUserQuery user) {
         MUser user1 = userService.addUser(user);
         if (user1 != null) {
@@ -34,7 +33,6 @@ public class UserController {
 
     @PostMapping(value = "/query", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ApiOperation(value = "查询用户列表",notes = "查询用户列表")
-    @ResponseBody
     public Response queryUser(@RequestBody QueryUserQuery queryUserQuery) {
         return ResponseUtil.ok(userService.query(queryUserQuery));
     }

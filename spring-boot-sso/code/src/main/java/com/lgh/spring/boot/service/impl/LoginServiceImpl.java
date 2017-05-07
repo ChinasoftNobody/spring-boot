@@ -1,14 +1,17 @@
 package com.lgh.spring.boot.service.impl;
 
+import com.lgh.spring.boot.common.Response;
 import com.lgh.spring.boot.model.MTicket;
 import com.lgh.spring.boot.model.MUser;
 import com.lgh.spring.boot.repo.TicketRepo;
 import com.lgh.spring.boot.repo.UserRepo;
 import com.lgh.spring.boot.service.LoginService;
+import com.lgh.spring.boot.util.ResponseUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.UUID;
 
 /**
@@ -48,5 +51,20 @@ public class LoginServiceImpl implements LoginService {
             return ticket.getTicketId();
         }
         return null;
+    }
+
+    @Override
+    public Response loginStatus(String ticket) {
+        MTicket mTicket = ticketRepo.findByTicketId(ticket);
+        if(mTicket == null){
+            return ResponseUtil.failed("ticket not fount in database");
+        }
+        if(System.currentTimeMillis() > mTicket.getEffectiveTime()){
+            return ResponseUtil.failed("ticket time out");
+        }
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("access",true);
+        map.put("msg","ticket correct");
+        return ResponseUtil.ok(map);
     }
 }
