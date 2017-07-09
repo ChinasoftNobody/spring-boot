@@ -20,7 +20,7 @@ import java.lang.reflect.Method;
 @Component
 public class ErrorHandler {
     private static Logger logger = LoggerFactory.getLogger(ErrorHandler.class);
-    @Pointcut("execution( * com.lgh.spring.boot.controller.*.*(..))")
+    @Pointcut("execution( * com.lgh.spring.boot.controller.rest.*.*(..))")
     public void pointCutAt() {
     }
 

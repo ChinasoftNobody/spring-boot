@@ -4,8 +4,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by Administrator on 2017/3/4.
@@ -21,11 +19,6 @@ public class MUser implements Serializable{
     private String name;
     private String email;
     private String password;
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JoinTable(name = "auth_user_role",
-    joinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "id")},
-    inverseJoinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")})
-    private Set<MRole> roles = new HashSet<>();
 
     public String getId() {
         return id;
@@ -49,14 +42,6 @@ public class MUser implements Serializable{
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Set<MRole> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<MRole> roles) {
-        this.roles = roles;
     }
 
     public String getPassword() {
