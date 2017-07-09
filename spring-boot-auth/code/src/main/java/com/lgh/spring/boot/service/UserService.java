@@ -1,20 +1,20 @@
 package com.lgh.spring.boot.service;
 
 import com.lgh.spring.boot.model.MUser;
-import com.lgh.spring.boot.pojo.user.AddUserQuery;
-import com.lgh.spring.boot.pojo.user.QueryUserQuery;
+import com.lgh.spring.boot.pojo.user.UserAddQuery;
+import com.lgh.spring.boot.pojo.user.UserQueryQuery;
 import org.springframework.data.domain.Page;
 
 /**
  * Created by Administrator on 2017/3/4.
  */
 public interface UserService {
-    boolean addUser(AddUserQuery user);
+    boolean addUser(UserAddQuery user);
 
     /**
      * 分页查询所有用户
-     * @param queryUserQuery 条件
+     * @param userQueryQuery 条件
      * @return 用户信息
      */
-    Page<MUser> query(QueryUserQuery queryUserQuery);
+    Page<MUser> query(UserQueryQuery userQueryQuery);
 }

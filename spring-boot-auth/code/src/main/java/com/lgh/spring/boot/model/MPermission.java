@@ -18,7 +18,7 @@ public class MPermission implements Serializable {
     @GenericGenerator(name = "UUID", strategy = "uuid")
     private String id;
     private String name;
-    private String describtion;
+    private String description;
     @ManyToMany(mappedBy = "permissions")
     private Set<MRole> roles = new HashSet<>();
 
@@ -38,12 +38,12 @@ public class MPermission implements Serializable {
         this.name = name;
     }
 
-    public String getDescribtion() {
-        return describtion;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescribtion(String describtion) {
-        this.describtion = describtion;
+    public void setDescription(String description) {
+        this.description = description;
     }
     public Set<MRole> getRoles() {
         return roles;

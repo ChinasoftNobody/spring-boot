@@ -18,7 +18,7 @@ public class MRole implements Serializable {
     @GenericGenerator(name = "UUID", strategy = "uuid")
     private String id;
     private String name;
-    private String describtion;
+    private String description;
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinTable(name = "auth_role_permission",
             joinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")},
@@ -43,12 +43,12 @@ public class MRole implements Serializable {
         this.name = name;
     }
 
-    public String getDescribtion() {
-        return describtion;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescribtion(String describtion) {
-        this.describtion = describtion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Set<MPermission> getPermissions() {

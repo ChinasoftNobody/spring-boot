@@ -24,6 +24,8 @@ public class MUser implements Serializable{
     joinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "id")},
     inverseJoinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")})
     private Set<MRole> roles = new HashSet<>();
+    @ManyToMany(mappedBy = "users")
+    private Set<MGroup> groups = new HashSet<>();
 
     public String getId() {
         return id;

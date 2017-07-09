@@ -1,9 +1,9 @@
 package com.lgh.spring.boot.controller;
 
 import com.lgh.spring.boot.common.Response;
-import com.lgh.spring.boot.pojo.user.QueryUserQuery;
+import com.lgh.spring.boot.pojo.user.UserQueryQuery;
 import com.lgh.spring.boot.util.ResponseUtil;
-import com.lgh.spring.boot.pojo.user.AddUserQuery;
+import com.lgh.spring.boot.pojo.user.UserAddQuery;
 import com.lgh.spring.boot.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.MediaType;
@@ -24,7 +24,7 @@ public class UserController {
     private UserService userService;
     @PostMapping(value = "/add",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ApiOperation(value = "添加用户",notes = "添加用户")
-    public Response addUser(@RequestBody AddUserQuery user){
+    public Response addUser(@RequestBody UserAddQuery user){
         if(userService.addUser(user)){
             return ResponseUtil.ok("success");
         }
@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/query",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Response queryUser(@RequestBody QueryUserQuery queryUserQuery){
-        return ResponseUtil.ok(userService.query(queryUserQuery));
+    public Response queryUser(@RequestBody UserQueryQuery userQueryQuery){
+        return ResponseUtil.ok(userService.query(userQueryQuery));
     }
 }

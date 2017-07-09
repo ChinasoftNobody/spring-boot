@@ -1,8 +1,8 @@
 package com.lgh.spring.boot.service.impl;
 
 import com.lgh.spring.boot.model.MUser;
-import com.lgh.spring.boot.pojo.user.AddUserQuery;
-import com.lgh.spring.boot.pojo.user.QueryUserQuery;
+import com.lgh.spring.boot.pojo.user.UserAddQuery;
+import com.lgh.spring.boot.pojo.user.UserQueryQuery;
 import com.lgh.spring.boot.repo.UserRepo;
 import com.lgh.spring.boot.service.UserService;
 import org.springframework.data.domain.Page;
@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserRepo userRepo;
     @Override
-    public boolean addUser(AddUserQuery user) {
+    public boolean addUser(UserAddQuery user) {
         MUser mUser = new MUser();
         mUser.setName(user.getName());
         mUser.setEmail(user.getEmail());
@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Page<MUser> query(QueryUserQuery queryUserQuery) {
-        return userRepo.findAll(queryUserQuery);
+    public Page<MUser> query(UserQueryQuery userQueryQuery) {
+        return userRepo.findAll(userQueryQuery);
     }
 }
